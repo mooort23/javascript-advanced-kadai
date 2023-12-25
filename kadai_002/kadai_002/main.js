@@ -94,16 +94,17 @@ const rankCheck = score => {
 const gameOver = id => {
   clearInterval(id);
 
-    // タイムアップ！を表示
-      untypedfield.textContent = 'タイムアップ！';
-      typedfield.textContent = 'none';
+  // タイムアップ！を表示
+  untypedfield.textContent = 'タイムアップ！';
+  typedfield.textContent = '';
 
-  const result = confirm(rankCheck(score));
-
-  // OKボタンをクリックされたらリロードする
-  if(result == true) {
-    window.location.reload();
-  }
+  setTimeout(() => {
+    const result = confirm(rankCheck(score));
+    // OKボタンをクリックされたらリロードする
+    if(result == true) {
+      window.location.reload();
+    }
+  })
 };
 
 // カウントダウンタイマー
